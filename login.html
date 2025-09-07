@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>เข้าสู่ระบบ - ระบบอ่านหนังสือออนไลน์</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .login-container {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      width: 100%;
+      padding: 0.6rem;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .register-link {
+      margin-top: 1rem;
+      display: block;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="login-container">
+  <h2>เข้าสู่ระบบ</h2>
+  <form action="/home.html" method="post">
+    <label for="username">ชื่อผู้ใช้</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="password">รหัสผ่าน</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="submit">เข้าสู่ระบบ</button>
+
+    <a class="register-link" href="/register.html">ยังไม่มีบัญชี? ลงทะเบียน</a>
+  </form>
+</div>
+
+</body>
+</html>

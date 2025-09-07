@@ -1,0 +1,44 @@
+<!-- favorite-books.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>หนังสือโปรดของฉัน</title>
+  <style>
+    body { font-family: sans-serif; margin: 0; padding: 20px; background-color: #eef2f3; }
+    h1 { text-align: center; }
+    .favorite-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+    .favorite-item { background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .favorite-item img { width: 100%; height: 250px; object-fit: cover; border-radius: 8px; }
+    .book-title { margin-top: 10px; font-weight: bold; font-size: 1.1em; }
+    .book-actions { margin-top: 10px; text-align: center; }
+    .book-actions a { text-decoration: none; background: #ff6f61; color: white; padding: 8px 12px; border-radius: 5px; font-size: 0.9em; display: inline-block; margin-top: 5px; }
+  </style>
+</head>
+<body>
+
+<h1>💖 หนังสือโปรดของฉัน</h1>
+
+<div class="favorite-list">
+  <!-- ตัวอย่างหนังสือโปรด -->
+  <div class="favorite-item">
+    <img src="/images/favbook1.jpg" alt="Favorite Book 1">
+    <div class="book-title">มนต์รักข้ามกาลเวลา</div>
+    <div class="book-actions">
+      <a href="/book-details/10">ดูรายละเอียด</a>
+    </div>
+  </div>
+
+  <div class="favorite-item">
+    <img src="/images/favbook2.jpg" alt="Favorite Book 2">
+    <div class="book-title">ลมหายใจของจักรวาล</div>
+    <div class="book-actions">
+      <a href="/book-details/11">ดูรายละเอียด</a>
+    </div>
+  </div>
+
+  <!-- เพิ่มได้เรื่อย ๆ -->
+</div>
+
+</body>
+</html>

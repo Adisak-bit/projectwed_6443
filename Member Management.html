@@ -1,0 +1,60 @@
+<!-- member-management.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>จัดการสมาชิก</title>
+  <style>
+    body { font-family: sans-serif; background-color: #f5f7fa; padding: 20px; }
+    h1 { text-align: center; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { padding: 12px; border-bottom: 1px solid #ddd; text-align: center; }
+    th { background-color: #4caf50; color: white; }
+    tr:hover { background-color: #f1f1f1; }
+    .edit-btn, .delete-btn { padding: 6px 12px; border: none; border-radius: 5px; cursor: pointer; }
+    .edit-btn { background-color: #2196f3; color: white; }
+    .delete-btn { background-color: #f44336; color: white; }
+  </style>
+</head>
+<body>
+
+<h1>👤 จัดการสมาชิก</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>รหัสสมาชิก</th>
+      <th>ชื่อผู้ใช้</th>
+      <th>อีเมล</th>
+      <th>บทบาท</th>
+      <th>การจัดการ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- ตัวอย่างข้อมูลสมาชิก -->
+    <tr>
+      <td>001</td>
+      <td>booklover99</td>
+      <td>booklover99@example.com</td>
+      <td>สมาชิก</td>
+      <td>
+        <button class="edit-btn">แก้ไข</button>
+        <button class="delete-btn">ลบ</button>
+      </td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>read4life</td>
+      <td>read4life@example.com</td>
+      <td>สมาชิก</td>
+      <td>
+        <button class="edit-btn">แก้ไข</button>
+        <button class="delete-btn">ลบ</button>
+      </td>
+    </tr>
+    <!-- เพิ่มข้อมูลสมาชิกได้เรื่อยๆ -->
+  </tbody>
+</table>
+
+</body>
+</html>

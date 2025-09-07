@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>อ่านหนังสือ PDF | ReadHub</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #E0D4B3;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      background-color: #fff;
+      padding: 10px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .logo {
+      font-size: 26px;
+      color: #444;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .nav-buttons {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .nav-buttons button {
+      padding: 8px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4DB3F7;
+      color: white;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .nav-buttons button:hover {
+      background-color: #369ae0;
+    }
+    .menu-icon {
+      font-size: 28px;
+      cursor: pointer;
+    }
+    .dropdown-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      position: absolute;
+      top: 60px;
+      right: 30px;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      width: 200px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .dropdown-menu.show {
+      max-height: 500px;
+    }
+    .dropdown-menu a {
+      display: block;
+      padding: 12px;
+      text-decoration: none;
+      color: #333;
+      border-bottom: 1px solid #eee;
+    }
+    .dropdown-menu a:hover {
+      background-color: #f5f5f5;
+    }
+    main {
+      flex: 1;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    iframe {
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 1000px;
+      height: 90vh;
+    }
+    footer {
+      background-color: #4DB3F7;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: auto;
+      font-size: 14px;
+    }
+  </style>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('dropdownMenu');
+      menu.classList.toggle('show');
+    }
+  </script>
+</head>
+<body>
+
+<header>
+  <a href="/" class="logo">📚 ReadHub</a>
+  <div class="nav-buttons">
+    <button onclick="location.href='/register'">ลงทะเบียน</button>
+    <button onclick="location.href='/login'">เข้าสู่ระบบ</button>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+  </div>
+
+  <div class="dropdown-menu" id="dropdownMenu">
+    <a href="/my-books">📖 หนังสือของฉัน</a>
+    <a href="/favorite-books">❤️ หนังสือเล่มโปรด</a>
+    <a href="/read-history">📚 หนังสือที่อ่านแล้ว</a>
+    <a href="/reading-stats">📈 สถิติการอ่าน</a>
+    <a href="/profile">👤 โปรไฟล์</a>
+  </div>
+</header>
+
+<main>
+  <h2>📖 อ่านหนังสือ: โลกที่หายไป</h2>
+
+  <!-- ตรงนี้ใส่ไฟล์ PDF -->
+  <iframe src="path-to-your-pdf.pdf"></iframe>
+
+</main>
+
+<footer>
+  © 2025 ReadHub. All rights reserved.
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>รายละเอียดหนังสือ | ReadHub</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #E0D4B3;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      background-color: #fff;
+      padding: 10px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 10;
+    }
+    .logo {
+      font-size: 26px;
+      color: #444;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .nav-buttons {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .nav-buttons button {
+      padding: 8px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4DB3F7;
+      color: white;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .nav-buttons button:hover {
+      background-color: #369ae0;
+    }
+    .menu-icon {
+      font-size: 28px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+    .dropdown-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      position: absolute;
+      top: 60px;
+      right: 30px;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      width: 200px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .dropdown-menu.show {
+      max-height: 500px;
+    }
+    .dropdown-menu a {
+      display: block;
+      padding: 12px;
+      text-decoration: none;
+      color: #333;
+      border-bottom: 1px solid #eee;
+    }
+    .dropdown-menu a:hover {
+      background-color: #f5f5f5;
+    }
+    main {
+      flex: 1;
+      padding: 50px 80px;
+      max-width: 1600px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    footer {
+      background-color: #4DB3F7;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: auto;
+      font-size: 14px;
+    }
+    .book-info {
+      display: flex;
+      gap: 40px;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+      margin-bottom: 40px;
+      align-items: flex-start;
+    }
+    .book-info img {
+      width: 300px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .book-details h2 {
+      margin-top: 0;
+      font-size: 28px;
+    }
+    .rating {
+      color: #f4c150;
+      font-size: 24px;
+      margin: 15px 0;
+    }
+    .section {
+      background: white;
+      padding: 25px;
+      margin-bottom: 40px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .comment-box {
+      border: 1px solid #ddd;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      background: #fafafa;
+    }
+    textarea, select, input[type="text"], button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    button {
+      background-color: #4DB3F7;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #369ae0;
+    }
+    form {
+      margin-top: 10px;
+    }
+    a.read-book-link {
+      display: inline-block;
+      margin-top: 20px;
+      background: #4DB3F7;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    a.read-book-link:hover {
+      background: #369ae0;
+    }
+  </style>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('dropdownMenu');
+      menu.classList.toggle('show');
+    }
+  </script>
+</head>
+<body>
+
+<header>
+  <a href="/" class="logo">📚 ReadHub</a>
+
+  <div class="nav-buttons">
+    <button onclick="location.href='/register'">ลงทะเบียน</button>
+    <button onclick="location.href='/login'">เข้าสู่ระบบ</button>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+  </div>
+
+  <div class="dropdown-menu" id="dropdownMenu">
+    <a href="/my-books">📖 หนังสือของฉัน</a>
+    <a href="/favorite-books">❤️ หนังสือเล่มโปรด</a>
+    <a href="/read-history">📚 หนังสือที่อ่านแล้ว</a>
+    <a href="/reading-stats">📈 สถิติการอ่าน</a>
+    <a href="/profile">👤 โปรไฟล์</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- ข้อมูลหนังสือ -->
+  <div class="book-info">
+    <img src="your-book-cover.jpg" alt="ปกหนังสือ">
+    <div class="book-details">
+      <h2>ชื่อหนังสือ: โลกที่หายไป</h2>
+      <p><strong>ผู้แต่ง:</strong> กัลย์สุดา</p>
+      <p><strong>สำนักพิมพ์:</strong> ดาวเหนือ</p>
+      <p><strong>ปีที่พิมพ์:</strong> 2021</p>
+      <div class="rating">
+        ⭐⭐⭐⭐☆ (4.0)
+      </div>
+      <p><strong>คำอธิบาย:</strong> หนังสือแนวแฟนตาซีเล่าถึงโลกคู่ขนานที่กำลังล่มสลาย...</p>
+      <a href="/read-book/2" class="read-book-link">📘 อ่านหนังสือ</a>
+    </div>
+  </div>
+
+  <!-- ความคิดเห็น -->
+  <div class="section comments">
+    <h3>💬 ความคิดเห็นจากผู้อ่าน</h3>
+
+    <div class="comment-box">
+      <p><strong>สมาชิก:</strong> user123</p>
+      <p>⭐ คะแนน: 4/5</p>
+      <p>น่าสนใจมาก เนื้อเรื่องกระชับ</p>
+      <small>โพสต์เมื่อ: 2025-03-10 15:32</small>
+    </div>
+
+    <!-- ฟอร์มแสดงความคิดเห็น -->
+    <form method="post" action="/comment">
+      <textarea name="comment_text" placeholder="เขียนความคิดเห็น..." rows="4" required></textarea>
+      <label for="rating">ให้คะแนน:</label>
+      <select name="rating" id="rating">
+        <option value="5">5 ดาว</option>
+        <option value="4">4 ดาว</option>
+        <option value="3">3 ดาว</option>
+        <option value="2">2 ดาว</option>
+        <option value="1">1 ดาว</option>
+      </select>
+      <input type="hidden" name="book_id" value="2">
+      <button type="submit">ส่งความคิดเห็น</button>
+    </form>
+  </div>
+
+  <!-- ฟอร์มแนะนำหนังสือ -->
+  <div class="section recommend-form">
+    <h3>📤 แนะนำหนังสือเล่มนี้</h3>
+    <form method="post" action="/recommend">
+      <textarea name="reason" placeholder="ทำไมคุณถึงแนะนำหนังสือเล่มนี้?" rows="3" required></textarea>
+      <input type="hidden" name="book_id" value="2">
+      <button type="submit">แนะนำหนังสือ</button>
+    </form>
+  </div>
+
+</main>
+
+<footer>
+  © 2025 ReadHub. All rights reserved.
+</footer>
+
+</body>
+</html>

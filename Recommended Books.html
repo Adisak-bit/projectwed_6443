@@ -1,0 +1,43 @@
+<!-- recommended-books.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>รายการหนังสือที่แนะนำ</title>
+  <style>
+    body { font-family: sans-serif; background-color: #f8f9fa; padding: 20px; }
+    h1 { text-align: center; }
+    .book-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 20px; }
+    .book-card { background: white; border: 1px solid #ddd; border-radius: 8px; width: 220px; padding: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .book-card img { width: 100%; height: 300px; object-fit: cover; border-radius: 5px; }
+    .book-card h3 { margin: 10px 0 5px; font-size: 18px; }
+    .book-card p { font-size: 14px; color: #555; }
+    .btn { margin-top: 10px; display: block; width: 100%; text-align: center; background-color: #007bff; color: white; padding: 8px; border-radius: 5px; text-decoration: none; }
+    .btn:hover { background-color: #0056b3; }
+  </style>
+</head>
+<body>
+
+<h1>📚 รายการหนังสือที่แนะนำ</h1>
+
+<div class="book-list">
+  <!-- ตัวอย่างหนังสือแนะนำ -->
+  <div class="book-card">
+    <img src="book1.jpg" alt="Book 1">
+    <h3>เส้นทางนักอ่าน</h3>
+    <p>แนะนำโดย: สมาชิก A</p>
+    <a href="#" class="btn">ดูรายละเอียด</a>
+  </div>
+
+  <div class="book-card">
+    <img src="book2.jpg" alt="Book 2">
+    <h3>พลังแห่งการเรียนรู้</h3>
+    <p>แนะนำโดย: สมาชิก B</p>
+    <a href="#" class="btn">ดูรายละเอียด</a>
+  </div>
+
+  <!-- เพิ่มหนังสือแนะนำได้ -->
+</div>
+
+</body>
+</html>

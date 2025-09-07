@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>สถิติการอ่าน | ReadHub</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #E0D4B3;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar {
+      background-color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .navbar h1 {
+      margin: 0;
+      color: #3E3E3E;
+    }
+    .stats-container {
+      max-width: 800px;
+      margin: 40px auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .stat-item {
+      margin-bottom: 20px;
+      padding: 15px;
+      background-color: #f8f8f8;
+      border-radius: 10px;
+    }
+    .footer {
+      background-color: #3399cc;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      margin-top: 40px;
+    }
+    canvas {
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <h1>📊 สถิติการอ่าน</h1>
+    <div>
+      <button>☰</button>
+    </div>
+  </div>
+
+  <div class="stats-container">
+    <!-- กราฟวงกลม -->
+    <div class="stat-item">
+      <strong>📊 สถิติประเภทหนังสือที่อ่านบ่อย</strong>
+      <div style="max-width: 400px; margin: 20px auto;">
+        <canvas id="genrePieChart" width="300" height="300"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    © 2025 ReadHub. All rights reserved.
+  </div>
+
+  <script>
+    const ctx = document.getElementById('genrePieChart').getContext('2d');
+    const data = [8, 5, 2, 2, 1];
+    const genrePieChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ['แฟนตาซี', 'วิทยาศาสตร์', 'โรแมนติก', 'สยองขวัญ', 'จิตวิทยา'],
+        datasets: [{
+          label: 'ประเภทหนังสือ',
+          data: data,
+          backgroundColor: ['#f87171', '#60a5fa', '#facc15', '#34d399', '#a78bfa'],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'bottom'
+          },
+          datalabels: {
+            color: '#fff',
+            formatter: (value, context) => {
+              const sum = data.reduce((a, b) => a + b, 0);
+              const percentage = (value / sum * 100).toFixed(1) + '%';
+              return percentage;
+            },
+            font: {
+              weight: 'bold',
+              size: 14
+            }
+          }
+        }
+      },
+      plugins: [ChartDataLabels]
+    });
+  </script>
+
+</body>
+</html>
